@@ -1,0 +1,26 @@
+{
+  "allowedTools": {
+    "Edit": true,
+    "Bash": {
+      "npm": true,
+      "npx": true,
+      "node": true,
+      "git": true,
+      "mkdir": true,
+      "touch": true,
+      "ls": true,
+      "cat": true,
+      "find": true,
+      "grep": true
+    }
+  },
+  "allowedDomains": [
+    "bcgcertification.org",
+    "familysearch.org",
+    "github.com",
+    "npmjs.com",
+    "typescriptlang.org",
+    "neo4j.com",
+    "mongodb.com"
+  ]
+}
