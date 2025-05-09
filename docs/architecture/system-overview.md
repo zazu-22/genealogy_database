@@ -12,93 +12,143 @@ The Genealogy Database System uses a layered architecture with clear separation 
 
 #### 1. Data Layer
 
-The foundation of the system consists of two primary data stores:
+The foundation of the system consists of two primary data stores with GEDCOM X as the conceptual data model:
 
-- **Graph Database**: Handles the complex relationship networks inherent in genealogical data
+- **Graph Database (Neo4j)**: Handles the complex relationship networks inherent in genealogical data
   - Stores person entities, relationships, places, and their interconnections
   - Enables complex traversal queries across family networks
   - Supports temporal dimensions for all entities and relationships
-  - Recommended implementation: Neo4j
+  - Implements evidence attribution on all assertions
+  - Supports confidence metrics on relationships
 
-- **Document Store**: Manages unstructured source materials and research documents
+- **Document Store (MongoDB)**: Manages unstructured source materials and research documents
   - Stores source documents, images, and other research materials
   - Supports full-text search and content extraction
-  - Manages citation templates and source metadata
-  - Recommended implementation: MongoDB or similar document database
+  - Manages citation templates based on Elizabeth Shown Mills standards
+  - Implements source classification and evidence evaluation
+  - Stores research logs and GPS compliance metrics
 
 #### 2. Service Layer
 
-The service layer encapsulates the core business logic:
+The service layer encapsulates the core business logic with emphasis on evidence evaluation:
 
 - **Entity Services**: Manage core entities (Person, Relationship, Place, etc.)
   - Handle CRUD operations with validation and business rules
-  - Implement field-level change tracking
-  - Enforce data quality mechanisms
+  - Implement field-level change tracking with evidence attribution
+  - Enforce data quality through source validation
 
-- **Research Services**: Support genealogical research workflows
-  - Manage source citations and evidence analysis
-  - Implement research task tracking
-  - Support hypothesis testing and conflict resolution
+- **Evidence Analysis Services**: Core of the genealogical research system
+  - Classify sources (original/derivative/authored)
+  - Evaluate information (primary/secondary/indeterminable)
+  - Categorize evidence (direct/indirect/negative)
+  - Support conflict resolution for contradictory evidence
 
-- **Analysis Services**: Provide analytical capabilities
+- **Research Management Services**: Support genealogical research methodology
+  - Track "reasonably exhaustive" research compliance
+  - Manage source citations with Mills templates
+  - Implement research log and task tracking
+  - Support hypothesis testing with evidence correlation
+
+- **Analysis Services**: Provide advanced analytical capabilities
   - Implement Genealogical Proof Standard workflow
   - Detect inconsistencies and research gaps
-  - Generate relationship insights and suggestions
+  - Generate relationship insights based on evidence quality
+  - Manage uncertain or conflicting information
 
 #### 3. API Layer
 
 The API layer provides standardized access to system functionality:
 
-- **GraphQL API**: Primary interface for client applications
-  - Provides flexible querying capabilities
-  - Supports complex relationship navigation
+- **GraphQL API with Apollo Server**: Primary interface for client applications
+  - Provides flexible querying with evidence attribution
+  - Supports complex relationship navigation with confidence metrics
   - Enables efficient data retrieval for UI components
+  - Facilitates evidence analysis workflows
 
 - **REST Endpoints**: Support for specific operations and integrations
-  - GEDCOM import/export
-  - Batch operations
-  - External system integrations
+  - GEDCOM X import/export capabilities
+  - GEDCOM (legacy) import support
+  - Batch operations for high-volume processing
+  - External system integrations (FamilySearch, etc.)
 
 #### 4. Presentation Layer
 
-Multiple interfaces provide access to system functionality:
+Multiple interfaces provide access to system functionality with emphasis on research workflows:
 
 - **Web Interface**: Primary user interface
   - Responsive design for desktop and mobile
-  - Progressive enhancement approach
-  - Component-based architecture
+  - Research workflow components based on GPS
+  - Evidence analysis tools and visualizations
+  - Source citation management interface
 
 - **Command Line Interface**: For power users and automation
-  - Batch operations
-  - Scripting capabilities
-  - System administration
+  - Batch operations for evidence processing
+  - Research script automation
+  - System administration and maintenance
 
 ## Cross-Cutting Concerns
+
+### Evidence Attribution Framework
+
+- All assertions link to supporting evidence
+- Confidence levels assigned to all data
+- Source classification and evaluation
+- Support for contradictory evidence
+- GPS compliance tracking
 
 ### Authentication and Authorization
 
 - Supports single-user and optional multi-user modes
 - Fine-grained access control for collaborative scenarios
-- Privacy filtering for sensitive information
+- Privacy filtering for living individuals
+- Control over research visibility
 
-### Version Control
+### Version Control and Evidence Tracking
 
-- Field-level change tracking
+- Field-level change tracking with attribution
 - Support for multiple research theories as branches
+- Evidence evolution tracking over time
 - Snapshot creation for stable reference points
 
-### Data Quality
+### Data Quality and Validation
 
 - Authority control for names, places, and sources
 - Duplicate detection with configurable matching rules
 - Data validation based on genealogical standards
-- Consistency checking across related records
+- Historical context validation
+- Evidence quality assessment
 
 ### Extensibility
 
 - Plugin architecture for additional features
-- Scripting support for custom workflows
+- Custom citation template support
+- Scripting support for research workflows
 - Webhook integration for external system notifications
+
+## Implementation Roadmap
+
+### Phase 1: Foundation Layer (1-3 months)
+- Core data models leveraging GEDCOM X
+- Neo4j/MongoDB database integration
+- Basic GraphQL API framework
+
+### Phase 2: Evidence Framework (4-6 months)
+- Source citation management with Mills templates
+- Evidence evaluation services
+- Research log system for GPS compliance
+- Conflict resolution system
+
+### Phase 3: Advanced Features (7-9 months)
+- Research workflow implementation
+- Tools for handling uncertain information
+- Evidence correlation algorithms
+- Advanced search and retrieval
+
+### Phase 4: Integration & Refinement (10-12 months)
+- User interface components
+- Import/export capabilities
+- Reporting and visualization
+- Collaborative research features
 
 ## Deployment Models
 
@@ -121,8 +171,9 @@ The system supports multiple deployment configurations:
 
 ## Technology Stack
 
+- **Data Model**: Extended GEDCOM X conceptual model
 - **Backend**: Node.js with TypeScript
-- **Database**: Neo4j (graph) and MongoDB (document)
+- **Databases**: Neo4j (graph) and MongoDB (document)
 - **API**: GraphQL with Apollo Server and RESTful endpoints
 - **Web Frontend**: React with TypeScript
 - **CLI**: Node.js command-line application
@@ -130,13 +181,13 @@ The system supports multiple deployment configurations:
 
 ## Data Flow
 
-1. User interacts with UI components or CLI
-2. Requests routed through GraphQL or REST API
+1. User interacts with research workflow components or CLI
+2. Requests routed through GraphQL API with evidence requirements
 3. API layer validates requests and calls appropriate services
-4. Service layer applies business logic and data transformations
-5. Data layer performs persistence operations
-6. Changes tracked in version control system
-7. Results returned to user with appropriate formatting
+4. Evidence analysis services evaluate data quality and GPS compliance
+5. Data persistence layer maintains evidence attribution
+6. Changes tracked in version control system with source provenance
+7. Results returned to user with confidence metrics and evidence quality indicators
 
 ## Security Considerations
 
@@ -144,12 +195,12 @@ The system supports multiple deployment configurations:
 - Transport security for networked deployments
 - Privacy controls for living individuals
 - Audit logging for sensitive operations
-- Regular backup procedures
+- Regular backup procedures with evidence integrity verification
 
 ## Performance Considerations
 
 - Efficient graph traversal for complex relationship queries
-- Caching strategies for frequently accessed data
-- Pagination and lazy loading for large result sets
+- Caching strategies for frequently accessed evidence
+- Pagination and lazy loading for large evidence sets
 - Batch processing for resource-intensive operations
 - Optimistic UI updates with background synchronization

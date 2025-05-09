@@ -22,27 +22,29 @@ IMPORTANT: Always adhere to these foundational principles when working on this p
 
 The system uses a modular architecture with:
 
-- Graph database for relationship modeling (Neo4j recommended)
-- Document storage for source materials
-- Local-first design with optional cloud sync
-- Responsive web interface
-- Command-line interface for power users
+- **Graph database** (Neo4j) for relationship modeling with evidence attribution
+- **Document storage** (MongoDB) for source materials with citation templates
+- **GEDCOM X** as the foundational data model, extended for evidence evaluation
+- **Local-first design** with optional cloud sync
+- **GraphQL API** with Apollo Server for flexible data access
+- **Responsive web interface** with research workflow components
+- **Command-line interface** for power users
 
 ### Development Standards
 
-- Use TypeScript for type safety and documentation
-- Follow TDD practices with clear test specifications
-- Implement field-level change tracking
-- Ensure all data is stored in open, documented formats
+- Use **TypeScript** for type safety and documentation
+- Follow **TDD practices** with clear test specifications
+- Implement **field-level change tracking** for all assertions
+- Ensure all data follows the **Genealogical Proof Standard**
 - Design for extensibility through plugins or scripting
 
 ### Important Files and Directories
 
 - `/docs/architecture/`: Contains detailed system design documents
 - `/src/models/`: Core data models (Person, Relationship, Place, etc.)
-- `/src/services/`: Business logic services
-- `/src/api/`: API endpoints
-- `/src/ui/`: User interface components
+- `/src/services/`: Business logic and evidence analysis services
+- `/src/api/`: GraphQL API and REST endpoints
+- `/src/ui/`: User interface components for research workflows
 - `/tests/`: Test suites organized by type
 
 ## Genealogical Concepts
@@ -85,33 +87,54 @@ YOU MUST understand these domain-specific concepts:
 
 ## Implementation Priorities
 
-1. Core data models (Person, Relationship, Event, Place)
-2. Source and citation management
-3. Evidence analysis framework
-4. Search and retrieval capabilities
-5. User interface components
-6. Integration capabilities
-7. Publishing and reporting
+1. **Foundation Layer** (1-3 months)
+   - Core data models leveraging GEDCOM X
+   - Neo4j/MongoDB database integration
+   - Basic GraphQL API framework
+
+2. **Evidence Framework** (4-6 months)
+   - Source citation management with Mills templates
+   - Evidence evaluation services
+   - Research log system for GPS compliance
+   - Conflict resolution system
+
+3. **Advanced Features** (7-9 months)
+   - Research workflow implementation
+   - Tools for handling uncertain information
+   - Evidence correlation algorithms
+   - Advanced search and retrieval
+
+4. **Integration & Refinement** (10-12 months)
+   - User interface components
+   - Import/export capabilities
+   - Reporting and visualization
+   - Collaborative research features
 
 When implementing any feature, ALWAYS:
 - Consider how it handles uncertain or conflicting information
 - Ensure proper source attribution
 - Maintain historical context
-- Support the research methodology
+- Support the Genealogical Proof Standard methodology
 
 ## Advanced Features Reference
 
 ### Person Entity Model
-Person entities must support multiple, uncertain name forms with temporal context and source attribution. Events in a person's life should be comprehensive, going beyond basic birth/marriage/death to include residence, occupation, and other life events.
+Person entities must support multiple, uncertain name forms with temporal context and source attribution. Every assertion must have citation support with evidence quality assessment. Events in a person's life should be comprehensive, going beyond basic birth/marriage/death to include residence, occupation, and other life events.
 
 ### Relationship Modeling
-Relationships must support complex family structures (adoption, foster, step) as well as non-familial relationships (neighbors, witnesses, employers) with temporal dimensions and confidence indicators.
+Relationships must support complex family structures (adoption, foster, step) as well as non-familial relationships (neighbors, witnesses, employers) with temporal dimensions and confidence indicators. All relationships require evidence support and quality assessment.
 
 ### Place Management
-Places must be handled as hierarchical entities with support for jurisdictional changes over time, name variants, and historical context.
+Places must be handled as hierarchical entities with support for jurisdictional changes over time, name variants, and historical context. Place assertions must include source citations and temporal boundaries.
 
 ### Temporal Framework
-Dates must support ranges, approximations, and qualifiers, with conversion between calendar systems and timeline visualization.
+Dates must support ranges, approximations, and qualifiers, with conversion between calendar systems and timeline visualization. Historical context must be maintained for all temporal data.
 
-### Research Management
-The system must implement Elizabeth Shown Mills' citation templates, source classification, and comprehensive research organization tools.
+### Evidence Analysis System
+The system must implement a comprehensive evidence analysis framework with:
+- Elizabeth Shown Mills' citation templates
+- Source classification (original/derivative/authored)
+- Information assessment (primary/secondary/indeterminable)
+- Evidence evaluation (direct/indirect/negative)
+- Conflict resolution mechanisms
+- GPS compliance tracking
