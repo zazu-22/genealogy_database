@@ -37,6 +37,8 @@ The system uses a modular architecture with:
 - Implement **field-level change tracking** for all assertions
 - Ensure all data follows the **Genealogical Proof Standard**
 - Design for extensibility through plugins or scripting
+- Properly handle **asynchronous operations** in database code
+- Use **unique interface names** across model files to avoid TypeScript conflicts
 
 ### Important Files and Directories
 
@@ -72,7 +74,9 @@ YOU MUST understand these domain-specific concepts:
 ## Common Commands
 
 - `npm run build`: Build the project
-- `npm run test`: Run test suite
+- `npm test`: Run test suite
+- `npm test -- --testPathPattern="unit"`: Run only unit tests
+- `npm test -- --testPathIgnorePatterns="integration"`: Skip integration tests
 - `npm run migrate`: Run database migrations
 - `npm run lint`: Check code style
 - `npm run docs`: Generate API documentation

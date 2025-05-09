@@ -22,38 +22,112 @@ This system aims to provide professional-grade genealogical research tooling wit
 - **Analysis Framework**: Genealogical Proof Standard support, conflict resolution tools
 - **Data Quality**: Authority control, duplicate detection, validation
 - **Version Control**: Field-level change tracking, multiple research theories
-- **Integration**: GEDCOM 7, API endpoints, repository integration
+- **Integration**: GEDCOM X compatibility, API endpoints, repository integration
 - **Publishing**: Report templates, chart generation, privacy controls
 
 ## Getting Started
 
 ### Prerequisites
 
-```
-[Will be populated as development progresses]
-```
+- Node.js (v16 or higher)
+- MongoDB
+- Neo4j Graph Database
+- TypeScript
 
 ### Installation
 
-```
-[Will be populated as development progresses]
+```bash
+# Clone the repository
+git clone https://github.com/yourusername/genealogy-database.git
+cd genealogy-database
+
+# Install dependencies
+npm install
+
+# Create environment configuration
+cp .env.example .env
+# Edit .env with your configuration
+
+# Build the project
+npm run build
 ```
 
 ### Development Setup
 
-```
-[Will be populated as development progresses]
+```bash
+# Start the development server
+npm run dev
+
+# Run tests
+npm test
+
+# Run linting
+npm run lint
 ```
 
 ## Architecture
 
 This project uses a modular architecture with:
 
-- Graph database backend for complex relationship queries
-- Document storage for unstructured source materials
-- Local-first design with optional cloud synchronization
-- Responsive web interface
-- Command-line interface for power users
+- **Data Model**: Extended GEDCOM X conceptual model
+- **Graph Database**: Neo4j for relationship modeling with evidence attribution
+- **Document Database**: MongoDB for source management and research process support
+- **API**: GraphQL with Apollo Server for flexible data access
+- **Local-first Design**: Optional cloud synchronization
+
+## Implementation Timeline
+
+1. **Foundation Layer** (1-3 months):
+   - Core data models leveraging GEDCOM X
+   - Neo4j/MongoDB database integration
+   - Basic GraphQL API framework
+
+2. **Evidence Framework** (4-6 months):
+   - Source citation management with Mills templates
+   - Evidence evaluation services
+   - Research log system for GPS compliance
+   - Conflict resolution system
+
+3. **Advanced Features** (7-9 months):
+   - Research workflow implementation
+   - Tools for handling uncertain information
+   - Evidence correlation algorithms
+   - Advanced search and retrieval
+
+4. **Integration & Refinement** (10-12 months):
+   - User interface components
+   - Import/export capabilities
+   - Reporting and visualization
+   - Collaborative research features
+
+## Testing
+
+The project includes comprehensive test suites:
+
+```bash
+# Run all tests
+npm test
+
+# Run unit tests only
+npm test -- --testPathPattern="unit"
+
+# Run integration tests only
+npm test -- --testPathPattern="integration"
+
+# Skip specific test categories
+npm test -- --testPathIgnorePatterns="integration" --testPathIgnorePatterns="logger"
+
+# Run tests with coverage
+npm test -- --coverage
+```
+
+Our testing approach follows these principles:
+- Unit tests for all models, utilities, and services
+- Integration tests for database operations
+- Mocking of external dependencies
+- Tests for both happy path and error conditions
+
+See the [tests/README.md](tests/README.md) for more information on the testing framework.
 
 ## Documentation
 
@@ -70,10 +144,11 @@ Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduc
 
 ## License
 
-This project is licensed under the [License Name] - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Acknowledgments
 
 - BCG Genealogical Standards
 - Elizabeth Shown Mills' "Evidence Explained"
+- GEDCOM X Conceptual Model and Java Implementation
 - FamilySearch Person Memory model
