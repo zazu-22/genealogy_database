@@ -24,7 +24,11 @@ This directory contains the source code for the Genealogy Database System, organ
 
 - **/services**: Business logic services
   - `/entity`: Entity management services
-  - `/evidence`: Evidence analysis services
+  - `/evidence`: Evidence analysis services:
+    - Source classification based on Mills' framework
+    - Information quality evaluation
+    - Evidence categorization (direct/indirect/negative)
+    - GPS compliance assessment
   - `/research`: Research management services
 
 - **/ui**: User interface components (for future implementation)
@@ -62,6 +66,80 @@ The data model is based on the GEDCOM X standard with extensions for evidence-ba
   - Provides flexible querying with evidence attribution
   - Supports complex relationship navigation with confidence metrics
   - Enables efficient data retrieval for UI components
+
+## Using the Evidence Analysis Services
+
+### Source Classification
+
+```typescript
+import { SourceClassificationServiceImpl } from './services/evidence/source-classification.service';
+import { Source } from './models/source/types';
+
+// Create a source classification service
+const classificationService = new SourceClassificationServiceImpl();
+
+// Classify a source
+const source: Source = /* get source from database */;
+const classification = await classificationService.classifySource(source);
+
+console.log(`Source originality: ${classification.originality}`);
+console.log(`Informant knowledge: ${classification.informantKnowledge}`);
+console.log(`Contemporaneity: ${classification.contemporaneity}`);
+console.log(`Clarity: ${classification.clarity}`);
+```
+
+### Information Evaluation
+
+```typescript
+import { InformationEvaluationServiceImpl } from './services/evidence/information-evaluation.service';
+
+// Create an information evaluation service
+const evaluationService = new InformationEvaluationServiceImpl();
+
+// Evaluate source reliability
+const reliability = await evaluationService.calculateSourceReliability(source);
+
+console.log(`Reliability score: ${reliability.score}`);
+console.log(`Information quality: ${reliability.informationQuality}`);
+```
+
+### Evidence Categorization
+
+```typescript
+import { EvidenceCategorizationServiceImpl } from './services/evidence/evidence-categorization.service';
+
+// Create an evidence categorization service
+const categorizationService = new EvidenceCategorizationServiceImpl();
+
+// Categorize evidence
+const evidenceType = await categorizationService.categorizeEvidence(
+  'source-123',
+  'citation-456',
+  'question-789'
+);
+
+console.log(`Evidence type: ${evidenceType}`);
+```
+
+### Complete Evidence Analysis
+
+```typescript
+import evidenceAnalysisService from './services/evidence';
+
+// Analyze a source
+const analysis = await evidenceAnalysisService.analyzeSource(source);
+
+// Correlate evidence from multiple sources
+const correlation = await evidenceAnalysisService.correlateEvidence(
+  ['citation-1', 'citation-2', 'citation-3'],
+  'research-question-123'
+);
+
+// Calculate confidence level for assertions
+const confidence = await evidenceAnalysisService.calculateAssertionConfidence(
+  ['citation-1', 'citation-2']
+);
+```
 
 ## Development Guidelines
 

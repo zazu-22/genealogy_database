@@ -19,7 +19,12 @@ This system aims to provide professional-grade genealogical research tooling wit
 - **Place Management**: Historical context, jurisdictional changes, geocoding integration
 - **Temporal Framework**: Date approximations, calendar conversions, timeline visualization
 - **Research Management**: Citation templates, source classification, research organization
-- **Analysis Framework**: Genealogical Proof Standard support, conflict resolution tools
+- **Evidence Analysis Framework**:
+  - Source classification (original/derivative/authored)
+  - Information evaluation (primary/secondary/indeterminable)
+  - Evidence categorization (direct/indirect/negative)
+  - Genealogical Proof Standard compliance assessment
+  - Conflict resolution for contradictory evidence
 - **Data Quality**: Authority control, duplicate detection, validation
 - **Version Control**: Field-level change tracking, multiple research theories
 - **Integration**: GEDCOM X compatibility, API endpoints, repository integration
@@ -72,19 +77,24 @@ This project uses a modular architecture with:
 - **Data Model**: Extended GEDCOM X conceptual model
 - **Graph Database**: Neo4j for relationship modeling with evidence attribution
 - **Document Database**: MongoDB for source management and research process support
+- **Evidence Analysis Services**: Source classification, information evaluation, and evidence categorization
 - **API**: GraphQL with Apollo Server for flexible data access
 - **Local-first Design**: Optional cloud synchronization
 
 ## Implementation Timeline
 
 1. **Foundation Layer** (1-3 months):
-   - Core data models leveraging GEDCOM X
-   - Neo4j/MongoDB database integration
-   - Basic GraphQL API framework
+   - ✅ Core data models leveraging GEDCOM X
+   - ✅ Neo4j/MongoDB database integration
+   - ✅ Basic GraphQL API framework
 
 2. **Evidence Framework** (4-6 months):
+   - ✅ Evidence Analysis Services with:
+     - Source classification based on Mills' framework
+     - Information quality evaluation
+     - Evidence categorization (direct, indirect, negative)
+     - GPS compliance assessment
    - Source citation management with Mills templates
-   - Evidence evaluation services
    - Research log system for GPS compliance
    - Conflict resolution system
 
@@ -133,10 +143,15 @@ See the [tests/README.md](tests/README.md) for more information on the testing f
 
 Comprehensive documentation is available in the `/docs` directory:
 
-- Architecture and data models
+- Architecture and data models:
+  - [System Overview](docs/architecture/system-overview.md)
+  - [Data Model](docs/architecture/data-model.md)
+  - [Evidence Analysis Services](docs/architecture/evidence-analysis-services.md)
 - Research methodology guidelines
-- User guides
-- Development documentation
+- Development documentation:
+  - [Implementation Status](docs/development/implementation-status.md)
+  - [TypeScript Guidelines](docs/development/typescript-guidelines.md)
+  - [CHANGELOG](docs/development/CHANGELOG.md)
 
 ## Contributing
 

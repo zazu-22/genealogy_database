@@ -2,6 +2,16 @@
 
 ## [Unreleased]
 
+### Added
+- Evidence Analysis Services implementation with:
+  - Source Classification Service for evaluating genealogical sources
+  - Information Evaluation Service for assessing information quality
+  - Evidence Categorization Service for categorizing direct, indirect, and negative evidence
+  - GPS Evaluation Service for Genealogical Proof Standard compliance
+  - Main Evidence Analysis Service with source analysis and evidence correlation
+- Comprehensive test suite for all Evidence Analysis Services
+- Architecture documentation for Evidence Analysis Services
+
 ## [0.1.1] - 2025-05-09
 
 ### Added
