@@ -1,4 +1,10 @@
 {
+  "permissions": {
+    "allow": [
+      "WebFetch",
+      "Bash"
+    ]
+  },
   "allowedTools": {
     "Edit": true,
     "Bash": {

@@ -1,0 +1,20 @@
+[
+  {
+    "id": "example-website-1746764416554",
+    "name": "Example Website Source",
+    "type": "website",
+    "outputDir": "examples/website",
+    "priority": 10,
+    "options": {
+      "sourceType": "website",
+      "urls": [
+        "https://example.com"
+      ],
+      "selector": "body",
+      "depth": 0
+    },
+    "tags": [
+      "example"
+    ]
+  }
+]
