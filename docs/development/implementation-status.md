@@ -30,18 +30,26 @@ These services follow Elizabeth Shown Mills' evidence evaluation framework and s
 
 ## Next Implementation Priorities
 
-The following items represent the next development priorities for the Evidence Framework phase:
+Based on a thorough review of genealogical methodology standards, we have revised our implementation priorities to better align with professional genealogical practice. The following items represent the updated development priorities for the Evidence Framework phase:
 
-1. **High Priority**
-   - Develop Research Management Services for GPS compliance tracking and research log management
-   - Create Source Citation Services with Mills templates support
-   - Integrate conflict resolution system with existing Evidence Analysis Services
+### Highest Priority
 
-2. **Medium Priority**
-   - Build relationship service with temporal data handling and evidence attribution
-   - Implement Person service with uncertain data and conflicting information support
-   - Develop Place service with historical context and jurisdictional changes support
-   - Create GraphQL schema for evidence-based queries
+- **Research Question Management Service** - Develop a dedicated service for formulating, validating, and tracking progress on specific research questions following BCG guidelines
+- **Source Citation Services** - Create comprehensive citation management with Mills templates support, ensuring all evidence is properly attributed
+- **Research Log Management** - Implement functionality to track sources searched (including negative searches), search strategies, and findings
+- **Enhanced Conflict Resolution System** - Expand the conflict resolution framework with structured documentation for conflicting evidence, explicit reasoning for resolution choices, and evidence weighting
+
+### High Priority
+
+- **Research Planning Component** - Add functionality to create research plans based on specific questions, identify potential sources, and establish search strategies
+- **Person Service** - Implement support for uncertain data, conflicting information, and alternative identities
+- **Relationship Service** - Build with FAN principle support (Friends, Associates, Neighbors) and temporal data handling for comprehensive network analysis
+
+### Medium Priority
+
+- **Place Service** - Develop with historical context and jurisdictional changes support
+- **GraphQL Schema** - Create schema for evidence-based queries
+- **Proof Argument Generation** - Implement tools to assist in creating soundly reasoned conclusions based on the evidence
 
 ## Implementation Guidelines
 
@@ -52,6 +60,8 @@ When implementing these services, remember to follow these core principles:
 3. Implement temporal context for all entities and relationships
 4. Follow Genealogical Proof Standard methodology
 5. Ensure proper handling of evidence quality assessment
+6. Utilize the FAN principle for context-based research
+7. Maintain clear research questions to guide the process
 
 ## Progress Tracking
 
@@ -62,6 +72,7 @@ Development progress will be tracked in this document and in the project CHANGEL
 After completing the Evidence Framework phase, the project will move to the Advanced Features phase, which will include:
 
 1. Research workflow implementation
-2. Tools for handling uncertain information
-3. Evidence correlation algorithms
-4. Advanced search and retrieval
+2. Advanced evidence correlation algorithms
+3. Collaborative research capabilities
+4. Automated research suggestions
+5. Advanced search and retrieval

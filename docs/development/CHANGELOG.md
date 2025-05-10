@@ -12,6 +12,12 @@
 - Comprehensive test suite for all Evidence Analysis Services
 - Architecture documentation for Evidence Analysis Services
 
+### Updated
+- Revised implementation priorities based on in-depth analysis of genealogical methodology standards
+- Restructured development roadmap to better align with BCG and professional genealogical practice
+- Added FAN principle (Friends, Associates, Neighbors) support to the implementation guidelines
+- Enhanced focus on Research Question Management as foundational to the genealogical research process
+
 ## [0.1.1] - 2025-05-09
 
 ### Added
