@@ -6,6 +6,9 @@
 // Export Evidence Analysis Services
 export * from './evidence';
 
+// Export Citation Services
+export * from './citation';
+
 // Add future service exports here
 // export * from './person';
 // export * from './relationship';
